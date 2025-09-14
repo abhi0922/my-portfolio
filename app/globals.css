@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@custom-variant hover (&:hover);
+
+body {
+  /* This is the base dark background color */
+  background-color: #0d0221; 
+  color: white;
+}
+
+.grid-background {
+  /* Creates the glowing grid effect */
+  background-image:
+    linear-gradient(to right, #241c4a 1px, transparent 1px),
+    linear-gradient(to bottom, #241c4a 1px, transparent 1px);
+  background-size: 40px 40px; /* Size of the grid squares */
+  
+  /* Adds a perspective effect */
+  perspective: 600px;
+}
+
+.grid-background::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(ellipse at center, rgba(13, 2, 33, 0) 0%, #0d0221 100%);
+  z-index: 2;
+}
+
+/* Container to hold the content on top of the background */
+.content-container {
+    position: relative;
+    z-index: 3;
+}
