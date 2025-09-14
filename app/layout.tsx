@@ -10,7 +10,7 @@ const vt323 = VT323({
 });
 
 export const metadata: Metadata = {
-  title: "Pedro Van-Lume | Portfolio",
+  title: "Abhilasha Arora | Portfolio",
   description: "My personal web developer portfolio.",
 };
 
