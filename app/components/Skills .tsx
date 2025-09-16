@@ -38,7 +38,7 @@ const skillsData = {
       { name: 'SQL', level: 70 },
     ],
   },
-    'Web Development': {
+  'Web Development': {
     tools: [
       { name: 'Visual Studio Code', icon: <Code size={20} /> },
       { name: 'Git', icon: <GitMerge size={20} /> },
@@ -60,7 +60,7 @@ const skillsData = {
         { name: 'SQL', level: 70 },
     ],
   },
-    'Langugages & Data Structures': {
+  'Langugages & Data Structures': {
     tools: [
         { name: 'Visual Studio Code', icon: <Code size={20} /> },
         { name: 'Git', icon: <GitMerge size={20} /> },
@@ -76,22 +76,22 @@ const skillsData = {
 
 const Skills = () => {
   const [activeTab, setActiveTab] = useState<SkillCategory>('Front-end');
-
   const currentSkills = skillsData[activeTab];
 
   return (
-    <section  id="skills" className="min-h-screen py-20 px-4 flex flex-col items-center">
+    <section id="skills" className="min-h-screen py-16 md:py-20 px-15 flex flex-col items-center"> {/* MODIFIED: Adjusted vertical padding */}
       <h2 className="text-4xl md:text-5xl font-bold mb-12 text-center animate-fadeInUp">
         Tools and <span className="text-cyan-400">Skills</span>
       </h2>
 
       {/* Category Tabs */}
-      <div className="flex flex-wrap  justify-center gap-4 mb-12">
+      <div className="flex flex-wrap justify-center gap-4 mb-12">
         {(Object.keys(skillsData) as SkillCategory[]).map((tab) => (
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`px-6 py-2 rounded-lg text-lg transition-all duration-300 ${
+            // MODIFIED: Responsive padding and text size for buttons
+            className={`px-4 md:px-6 py-2 rounded-lg text-base md:text-lg transition-all duration-300 ${
               activeTab === tab 
                 ? 'bg-cyan-500 text-white shadow-lg shadow-cyan-500/30' 
                 : 'bg-slate-700 hover:bg-slate-600'
@@ -102,24 +102,32 @@ const Skills = () => {
         ))}
       </div>
 
-      {/* Skills and Tools Grid - Added a key to re-trigger animations on tab change */}
-      <div key={activeTab} className="container pl-50 pr-20 grid grid-cols-1 md:grid-cols-2 gap-16">
+      {/* Skills and Tools Grid */}
+      {/* MODIFIED: Removed invalid padding classes, adjusted gap */}
+      <div key={activeTab} className="container grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-16">
+        
         {/* Tools Column */}
         <div className="animate-slideInLeft">
-          <h3 className="text-3xl font-bold mb-8 text-center">Tools</h3>
-          <div className="space-y-4">
-            {currentSkills.tools.map((tool, index) => (
-              <div key={index} className="flex items-center gap-4 text-xl p-2">
-                <span className="text-cyan-400">{tool.icon}</span>
-                <span>{tool.name}</span>
-              </div>
-            ))}
+          {/* MODIFIED: Responsive and aligned header */}
+          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center md:text-left">Tools</h3>
+          {/* MODIFIED: Centered tool items on mobile */}
+          <div className="flex justify-center md:justify-start">
+            <div className="space-y-4">
+              {currentSkills.tools.map((tool, index) => (
+                <div key={index} className="flex items-center gap-4 text-xl p-2">
+                  <span className="text-cyan-400">{tool.icon}</span>
+                  <span>{tool.name}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
         {/* Skills Column */}
-        <div className="animate-slideInRight mr-10">
-          <h3 className="text-3xl font-bold mb-8 text-center">Skills</h3>
+        {/* MODIFIED: Removed invalid 'mr-10' class */}
+        <div className="animate-slideInRight">
+          {/* MODIFIED: Responsive and aligned header */}
+          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center md:text-left">Skills</h3>
           <div className="space-y-6">
             {currentSkills.skills.map((skill, index) => (
               <div key={index}>
@@ -143,4 +151,3 @@ const Skills = () => {
 };
 
 export default Skills;
-
