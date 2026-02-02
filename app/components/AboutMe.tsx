@@ -43,7 +43,7 @@ const AboutMe = () => {
               My Skills
             </a>
             <a 
-              href="https://drive.google.com/file/d/1hn9QcN5OJHye8CNw72IecxW63CHtsxFZ/view?usp=drive_link" 
+              href="https://drive.google.com/file/d/1Uo7v0ds8JblJuuxz0Nz9tSeP1cSMzBt6/view?usp=drive_link" 
               download="Abhilasha_Arora_CV.pdf"
               className="px-5 py-2 border-2 border-white text-white rounded-md text-base md:text-lg hover:bg-white hover:text-black transition-all duration-300 transform hover:scale-105"
             >
